@@ -6,24 +6,23 @@ import random
 
 
 class ant:
-    def __init__(self, size,sequence):
+    def __init__(self, size,id):
         self.size = size
         self.board = np.zeros([size,size],dtype= int)        
         self.ant_pos = np.array([size//2, size//2])
         self.ant_direct = 0
         self.ant_direction_list = np.array([[0,1],[1,0],[0,-1],[-1,0]])
 
+
         sample = ['L','R']
-        sequence = ''
+        self.sequence = ''
 
-        for i in range(8):
-            sequence += sample[random.randint(0,1)]
-
-        print(sequence)
+        for i in id:
+            self.sequence += sample[i]
 
         dictionnaire_positions = {}
 
-        for index, lettre in enumerate(sequence):
+        for index, lettre in enumerate(self.sequence):
             if lettre == 'L':
                 dictionnaire_positions[index] = -1
             elif lettre == 'R':
